@@ -11,7 +11,7 @@
             }
         }
 
-        function app() {
+        function queryApp() {
             $query = "SELECT * FROM app";
             $result = mysqli_query($this->connection, $query);
             if(!$result && DEBUG) {
