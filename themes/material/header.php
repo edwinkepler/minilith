@@ -2,7 +2,7 @@
 
 ?>
 <!doctype html>
-<html class="no-js" lang="<?php echo $main->app()->getTitle(); ?>">
+<html class="no-js" lang="<?php echo $main->app()->getLanguage(); ?>">
 
 <head>
     <meta charset="utf-8">

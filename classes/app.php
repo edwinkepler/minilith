@@ -6,6 +6,11 @@
             $this->db = $db;
         }
 
+        public function getLanguage() {
+            $lang = $this->db->queryApp();
+            return $lang["language"];
+        }
+
         public function getTitle() {
             $title = $this->db->queryApp();
             return $title["title"];
