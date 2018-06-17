@@ -3,16 +3,16 @@
     session_start();
     if(isset($_POST)) {
         if($_SESSION["csrf"] != $_POST["csrf"] || !isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["submit"])) {
-            header("Location: ../../index.php");
+            header("Location: ../../login.php");
         }
     } else {
-        header("Location: ../../index.php");
+        header("Location: ../../login.php");
     }
 
     require("../../../config/db.php");
     $connection = mysqli_connect($db["host"], $db["user"], $db["pass"], $db["name"]);
 
-    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL); // Sanitize email
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $email = $connection->real_escape_string($email);
     $password = $connection->real_escape_string($_POST["password"]);
 
