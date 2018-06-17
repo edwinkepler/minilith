@@ -8,7 +8,7 @@
             $this->app_vars = $_app_vars;
         }
 
-        public function getUrl() {
+        public function url() {
             $app_query = $this->db->queryApp();
 
             if(!isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != "on") {
