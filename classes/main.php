@@ -5,6 +5,7 @@
         private $site;
         private $posts;
         private $post;
+        private $storage;
 
         public function __construct($_app_vars) {
             require($_SERVER["DOCUMENT_ROOT"] . $_app_vars["path"] . "/classes/db.php");
@@ -22,6 +23,9 @@
 
             require($_SERVER["DOCUMENT_ROOT"] . $_app_vars["path"] . "/classes/post.php");
             $this->post = new Post($this->db);
+
+            require($_SERVER["DOCUMENT_ROOT"] . $_app_vars["path"] . "/classes/storage.php");
+            $this->storage = new Storage($this->db, $_app_vars);
         }
 
         public function theme() {
@@ -38,6 +42,10 @@
 
         public function post() {
             return $this->post;
+        }
+
+        public function storage() {
+            return $this->storage;
         }
     }
 ?>

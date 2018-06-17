@@ -8,4 +8,5 @@
 - Theme class
 - Posts class
 - Post class
+- Storage class
 - Material theme boilerplate
