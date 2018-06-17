@@ -28,5 +28,14 @@
             }
             return $result;
         }
+
+        function queryPost($_id) {
+            $query = "SELECT * FROM posts WHERE id='$_id'";
+            $result = mysqli_query($this->connection, $query);
+            if(!$result && $this->app_vars["is_debug"]) {
+                die("Post table query failed. " . mysqli_error($this->connection));
+            }
+            return mysqli_fetch_assoc($result);
+        }
     }
 ?>
