@@ -4,15 +4,31 @@
     $main = new Main($config_app);
 
     if(!empty($_GET)) {
-        $post   = $_GET['p'];
-        $cat    = $_GET['cat'];
+        if(isset($_GET["post"])) {
+            $post = $_GET["post"];
+        } elseif(isset($_GET["page"])) {
+            $page = $_GET["page"];
+        } elseif(isset($_GET["category"])) {
+            $category = $_GET["category"];
+        } elseif(isset($_GET["search"])) {
+            $search = $_GET["search"];
+        } elseif(isset($_GET["archive"])) {
+            $archive = $_GET["archive"];
+        }
     }
 
-    if(empty($post) && empty($cat)) {
-        include "themes/" . $main->app()->getThemeName() . "/index.php";
+    if(empty($post) && empty($category) && empty($search) && empty($archive)) {
+        include "themes/" . $main->site()->themeName() . "/index.php";
     } elseif(!empty($post)) {
-        echo 'single';
-    } elseif(!empty($cat)) {
-        echo 'category';
+        $main->post()->setId($post);
+        include "themes/" . $main->site()->themeName() . "/post.php";
+    } elseif(!empty($page)) {
+        include "themes/" . $main->site()->themeName() . "/page.php";
+    } elseif(!empty($category)) {
+        include "themes/" . $main->site()->themeName() . "/category.php";
+    } elseif(!empty($search)) {
+        include "themes/" . $main->site()->themeName() . "/search.php";
+    } elseif(!empty($archive)) {
+        include "themes/" . $main->site()->themeName() . "/archive.php";
     }
 ?>

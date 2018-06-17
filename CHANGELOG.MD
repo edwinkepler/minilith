@@ -3,7 +3,7 @@
 ### Added
 
 - DB class
-- App class
+- Site class
 - Main class
 - Theme class
 - Posts class
