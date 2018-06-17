@@ -6,9 +6,12 @@
         function __construct($_db_vars, $_app_vars) {
             $this->connection = mysqli_connect($_db_vars["host"], $_db_vars["user"], $_db_vars["pass"], $_db_vars["name"]);
             $this->app_vars = $_app_vars;
+
             if(!$this->connection && $this->app_vars["is_debug"]) {
                 die("Connection to DB failed. " . mysqli_error($this->connection));
             }
+
+            $this->connection->set_charset($this->app_vars["charset"]);
         }
 
         function queryApp() {
