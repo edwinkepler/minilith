@@ -17,5 +17,19 @@
                 return $post["title"];
             }
         }
+
+        public function content() {
+            if(isset($this->id)) {
+                $post = $this->db->queryPost($this->id);
+                return $post["content"];
+            }
+        }
+
+        public function image() {
+            if(isset($this->id)) {
+                $post = $this->db->queryPost($this->id);
+                return $post["image"];
+            }
+        }
     }
 ?>
