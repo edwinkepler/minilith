@@ -6,8 +6,12 @@
             $this->db = $_db;
         }
 
-        public function getNumOfPosts() {
+        public function count() {
             return mysqli_num_rows($this->db->queryPosts());
+        }
+
+        public function all() {
+            return $this->db->queryPosts();
         }
     }
 ?>
