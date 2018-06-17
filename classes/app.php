@@ -2,8 +2,8 @@
     class App {
         private $db;
 
-        public function __construct($db) {
-            $this->db = $db;
+        public function __construct($_db) {
+            $this->db = $_db;
         }
 
         public function getLanguage() {

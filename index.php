@@ -1,6 +1,7 @@
 <?php
+    require("config/app.php");
     require("classes/main.php");
-    $main = new Main();
+    $main = new Main($config_app);
 
     if(!empty($_GET)) {
         $post   = $_GET['p'];

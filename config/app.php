@@ -1,5 +1,8 @@
 <?php
-    define("APP_PATH", "/minilith");
-
-    define("DEBUG", true);
+    namespace Config {
+        $config_app = [
+            "path"      => "/minilith",
+            "is_debug"  => true
+        ];
+    }
 ?>

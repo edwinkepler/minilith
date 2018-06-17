@@ -1,6 +1,10 @@
 <?php
-    define("DB_HOST", "localhost");
-    define("DB_USER", "root");
-    define("DB_PASS", "");
-    define("DB_NAME", "minilith");
+    namespace Config {
+        $db = [
+            "host" => "localhost",
+            "user" => "root",
+            "pass" => "",
+            "name" => "minilith"
+        ];
+    }
 ?>

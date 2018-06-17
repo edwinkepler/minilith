@@ -1,12 +1,10 @@
 <?php
-    include($_SERVER["DOCUMENT_ROOT"] . APP_PATH . "/config/db.php");
-
     class DB {
         private $connection;
 
-        function __construct() {
-            $this->connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-            if(!$this->connection && DEBUG) {
+        function __construct($db_vars) {
+            $this->connection = mysqli_connect($db_vars["host"], $db_vars["user"], $db_vars["pass"], $db_vars["name"]);
+            if(!$this->connection && $app["is_debug"]) {
                 die("Connection to DB failed. " . mysqli_error($this->connection));
             }
         }
@@ -14,7 +12,7 @@
         function queryApp() {
             $query = "SELECT * FROM app";
             $result = mysqli_query($this->connection, $query);
-            if(!$result && DEBUG) {
+            if(!$result && $app["is_debug"]) {
                 die("App table query failed. " . mysqli_error($this->connection));
             }
             return mysqli_fetch_assoc($result);
