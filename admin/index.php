@@ -8,5 +8,16 @@
     require("../config/app.php");
     require($_SERVER["DOCUMENT_ROOT"] . $config_app["path"] . "/admin/classes/db.php");
 
-    echo "index.php";
+    define("PAGE_NAME", "Index");
 ?>
+<?php require("includes/header.php"); ?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            hello world
+        </div>
+    </div>
+</div>
+
+<?php require("includes/footer.php"); ?>
