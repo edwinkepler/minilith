@@ -12,6 +12,8 @@
             }
 
             $this->connection->set_charset($this->app_vars["charset"]);
+
+            return $this->connection;
         }
 
         function queryApp() {
@@ -30,6 +32,10 @@
                 die("Posts table query failed. " . mysqli_error($this->connection));
             }
             return $result;
+        }
+
+        function createPost($_title, $_content, $_excerpt, $_date, $_username, $_filename) {
+            mysqli_query($this->connection, "INSERT INTO posts VALUES ('', '$_title', '$_content', '$_excerpt', '$_date', '$_username', '$_filename')");
         }
 
         function queryPost($_id) {
