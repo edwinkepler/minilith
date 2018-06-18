@@ -1,3 +1,15 @@
 body {
     font-family: "Lato", sans-serif;
 }
+
+.width-100 {
+    width: 100%;
+}
+
+.padding-top-15px {
+    padding-top: 15px;
+}
+
+.padding-bottom-15px {
+    padding-bottom: 15px;
+}
