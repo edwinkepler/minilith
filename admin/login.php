@@ -24,7 +24,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-4 offset-md-4">
-                <form class="login-form" action="includes/form_handlers/login_handler.php" method="POST">
+                <form class="login-form" action="includes/forms/login.php" method="POST">
                     <input type="hidden" name="csrf" value="<?php echo $_SESSION["csrf"] ?>">
                     <div class="form-group">
                         <label for="email">Name</label>
