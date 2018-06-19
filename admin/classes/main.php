@@ -1,7 +1,6 @@
 <?php
     require("../config/app.php");
     require("../config/db.php");
-    require("session.php");
     require("db.php");
 
     class Main {
