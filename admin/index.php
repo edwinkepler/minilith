@@ -7,6 +7,7 @@
         header("Location: login.php");
     }
 
+    Main::definePage();
     Main::setPageName("Dashboard");
 ?>
 <?php require("includes/header.php"); ?>

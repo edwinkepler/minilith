@@ -18,5 +18,9 @@
         public static function setPageName($_name) {
             define("PAGE_NAME", $_name);
         }
+
+        public static function definePage() {
+            define("PAGE", true);
+        }
     }
 ?>
