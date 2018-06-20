@@ -8,4 +8,11 @@
         header("Location: login.php");
         exit;
     }
+
+    if(isset($_POST["submit"])) {
+        $main->db()->deletePost($_GET["id"]);
+    }
+
+    header("Location: posts.php");
+    exit;
 ?>
