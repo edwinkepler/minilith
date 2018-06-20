@@ -21,9 +21,10 @@
             Main::definePage();
             Main::setPageName("Update post");
             require("includes/header.php");
-            require("includes/posts/update.php");
+            require("includes/posts/create.php");
             require("includes/footer.php");
         } elseif($_GET["action"] == "delete" && isset($_GET["id"])) {
+            Main::definePage();
             require("includes/posts/delete.php");
         }
     } else {

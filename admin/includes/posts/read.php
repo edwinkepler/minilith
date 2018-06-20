@@ -50,7 +50,9 @@
             <span><?php echo $post["author"]; ?></span>
         </div>
         <div class="col-3">
-            <button type="button" class="btn btn-primary">Edit</button>
+            <form action="posts.php?action=update&id=<?php echo $post["id"]; ?>" method="POST">
+                <button type="submit" name="update" class="btn btn-primary">Edit</button>
+            </form>
             <form action="posts.php?action=delete&id=<?php echo $post["id"]; ?>" method="POST">
                 <button type="submit" name="submit" class="btn btn-danger">Delete</button>
             </form>

@@ -16,39 +16,61 @@
             return $this->connection;
         }
 
-        function queryApp() {
-            $query = "SELECT * FROM app";
-            $result = mysqli_query($this->connection, $query);
-            if(!$result && $this->app_vars["is_debug"]) {
-                die("App table query failed. " . mysqli_error($this->connection));
-            }
-            return mysqli_fetch_assoc($result);
-        }
-
-        function queryPosts() {
+        public function queryPosts() {
             $query = "SELECT * FROM posts";
             $result = mysqli_query($this->connection, $query);
             if(!$result && $this->app_vars["is_debug"]) {
-                die("Posts table query failed. " . mysqli_error($this->connection));
+                die("queryPosts() query failed. " . mysqli_error($this->connection));
             }
             return $result;
         }
 
-        function createPost($_title, $_content, $_excerpt, $_date, $_username, $_filename) {
-            mysqli_query($this->connection, "INSERT INTO posts VALUES ('', '$_title', '$_content', '$_excerpt', '$_date', '$_username', '$_filename')");
+        public function createPost($_title, $_content, $_excerpt, $_date, $_username, $_filename) {
+            $_title = mysqli_real_escape_string($this->connection, $_title);
+            $_content = mysqli_real_escape_string($this->connection, $_content);
+            $_excerpt = mysqli_real_escape_string($this->connection, $_excerpt);
+            $_date = mysqli_real_escape_string($this->connection, $_date);
+            $_username = mysqli_real_escape_string($this->connection, $_username);
+            $_filename = mysqli_real_escape_string($this->connection, $_filename);
+
+            $result = mysqli_query($this->connection, "INSERT INTO posts VALUES ('', '$_title', '$_content', '$_excerpt', '$_date', '$_username', '$_filename')");
+            if(!$result && $this->app_vars["is_debug"]) {
+                die("createPost() query failed. " . mysqli_error($this->connection));
+            }
         }
 
-        function queryPost($_id) {
+        public function updatePost($_id, $_title, $_content, $_excerpt, $_date, $_username, $_filename) {
+            $_title = mysqli_real_escape_string($this->connection, $_title);
+            $_content = mysqli_real_escape_string($this->connection, $_content);
+            $_excerpt = mysqli_real_escape_string($this->connection, $_excerpt);
+            $_date = mysqli_real_escape_string($this->connection, $_date);
+            $_username = mysqli_real_escape_string($this->connection, $_username);
+            $_filename = mysqli_real_escape_string($this->connection, $_filename);
+
+            $result = mysqli_query($this->connection, "UPDATE posts SET title='$_title', content='$_content', excerpt='$_excerpt', date_published='$_date', author='$_username', image='$_filename' WHERE id='$_id'");
+            if(!$result && $this->app_vars["is_debug"]) {
+                die("createPost() query failed. " . mysqli_error($this->connection));
+            }
+        }
+
+        public function deletePost($_id) {
+            $result = mysqli_query($this->connection, "DELETE FROM posts WHERE id='$_id'");
+            if(!$result && $this->app_vars["is_debug"]) {
+                die("deletePost() query failed. " . mysqli_error($this->connection));
+            }
+        }
+
+        public function getPost($_id) {
             $query = "SELECT * FROM posts WHERE id='$_id'";
             $result = mysqli_query($this->connection, $query);
             if(!$result && $this->app_vars["is_debug"]) {
-                die("Post table query failed. " . mysqli_error($this->connection));
+                die("getPost() query failed. " . mysqli_error($this->connection));
             }
             return mysqli_fetch_assoc($result);
         }
 
-        function queryUsers() {
-            $query = "SELECT * FROM users";
+        public function queryPost($_id) {
+            $query = "SELECT * FROM posts WHERE id='$_id'";
             $result = mysqli_query($this->connection, $query);
             if(!$result && $this->app_vars["is_debug"]) {
                 die("Post table query failed. " . mysqli_error($this->connection));
