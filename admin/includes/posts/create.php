@@ -183,7 +183,7 @@
                     <?php
                         if(isset($_POST["update"])) {
                     ?>
-                    <img class="form-thumbnail" src="<?php echo "../storage/images/" . $_SESSION["file"]; ?>" alt="Thumbnail">
+                    <img class="width-100" src="<?php echo "../storage/images/" . $_SESSION["file"]; ?>" alt="Thumbnail">
                     <?php
                         }
                     ?>
