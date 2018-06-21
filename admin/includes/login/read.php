@@ -4,9 +4,11 @@
     if(isset($_POST)) {
         if($_SESSION["csrf"] != $_POST["csrf"] || !isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["submit"])) {
             header("Location: ../../login.php");
+            exit();
         }
     } else {
         header("Location: ../../login.php");
+        exit();
     }
 
     require("../../../config/db.php");
@@ -19,14 +21,17 @@
     $query = mysqli_query($connection, "SELECT * FROM users WHERE email='$email'");
     if(mysqli_num_rows($query) == 0) {
         header("Location: ../../login.php");
+        exit();
     } else {
         $user = mysqli_fetch_assoc($query);
         if(password_verify($password, $user['password'])) {
             $_SESSION["logged_in"] = true;
             $_SESSION["username"] = $user["username"];
             header("Location: ../../index.php");
+            exit();
         } else {
             header("Location: ../../login.php");
+            exit();
         }
     }
 ?>

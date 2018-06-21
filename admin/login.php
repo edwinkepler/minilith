@@ -5,6 +5,7 @@
 
     if(isset($_SESSION["username"]) && isset($_SESSION["logged_in"])) {
         header("Location: index.php");
+        exit();
     }
 ?>
 <!DOCTYPE html>
