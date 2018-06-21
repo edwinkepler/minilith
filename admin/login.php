@@ -16,26 +16,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login | Minilith</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/login.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.1.0/flexboxgrid2.css"/>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-purple.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/css/login.css"/>
+
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
     <div class="background"></div>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-4 offset-md-4">
+        <div class="row center-xs middle-xs">
+            <div class="col-xs-12 col-md-4">
                 <form class="login-form" action="includes/login/read.php" method="POST">
                     <input type="hidden" name="csrf" value="<?php echo $_SESSION["csrf"] ?>">
-                    <div class="form-group">
-                        <label for="email">Name</label>
-                        <input class="form-control" type="email" name="email" placeholder="E-mail" required>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="email" name="email" placeholder="E-mail" required>
+                        <label class="mdl-textfield__label" for="email">Email</label>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Name</label>
-                        <input class="form-control" type="password" name="password" placeholder="Password" required>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="password" name="password" placeholder="Password" required>
+                        <label class="mdl-textfield__label" for="password">Password</label>
                     </div>
-                    <input class="btn btn-primary" type="submit" name="submit" value="Login">
+                    <input class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" name="submit" value="Login">
                 </form>
             </div>
         </div>
