@@ -7,6 +7,7 @@
         header("Location: login.php");
     }
 
+    $main = new Main($db, $config_app);
     Main::definePage();
     Main::setPageName("Dashboard");
 ?>

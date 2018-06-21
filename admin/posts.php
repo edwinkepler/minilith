@@ -14,12 +14,20 @@
         if($_GET["action"] == "create") {
             Main::definePage();
             Main::setPageName("Create new post");
+
+            $main->setCss("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css");
+            $main->setScript("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js");
+
             require("includes/header.php");
             require("includes/posts/create.php");
             require("includes/footer.php");
         } elseif($_GET["action"] == "update" && isset($_GET["id"])) {
             Main::definePage();
             Main::setPageName("Update post");
+
+            $main->setCss("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css");
+            $main->setScript("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js");
+
             require("includes/header.php");
             require("includes/posts/create.php");
             require("includes/footer.php");
