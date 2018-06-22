@@ -1,6 +1,31 @@
+/* MAIN */
+
 body {
     font-family: "Lato", sans-serif;
 }
+
+.container {
+    max-width: 900px;
+}
+
+/* END MAIN */
+/* MAIN NAVIGATION */
+
+
+/* END MAIN NAVIGATION */
+/* HERO */
+
+.hero h1,
+.hero h2 {
+    padding-left: 0.75rem;
+}
+
+.hero-body {
+    padding: 2rem 1.5rem;
+}
+
+/* END HERO */
+/* HELPERS */
 
 .width-100 {
     width: 100%;
@@ -13,3 +38,5 @@ body {
 .padding-bottom-15px {
     padding-bottom: 15px;
 }
+
+/* END HELPERS */

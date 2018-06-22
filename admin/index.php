@@ -13,12 +13,20 @@
 ?>
 <?php require("includes/header.php"); ?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            hello world
+    <section class="hero is-info">
+        <div class="hero-body">
+            <div class="container">
+            <h1 class="title">
+                Dashboard
+            </h1>
+            <h2 class="subtitle">
+                Welcome, <?php echo $_SESSION["username"]; ?>
+            </h2>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+    <main class="has-background-light">
+
+    </main>
 
 <?php require("includes/footer.php"); ?>
