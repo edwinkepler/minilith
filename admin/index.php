@@ -17,7 +17,7 @@
         <div class="hero-body">
             <div class="container">
             <h1 class="title">
-                Dashboard
+                <?php echo PAGE_NAME ?>
             </h1>
             <h2 class="subtitle">
                 Welcome, <?php echo $_SESSION["username"]; ?>
