@@ -75,6 +75,27 @@ https://stackoverflow.com/a/32585024 */
 }
 
 /* END LISTS */
+/* PELL */
+
+#pell {
+    margin: 1rem 0 0 0;
+    border-radius: 4px;
+}
+
+.pell-content {
+    height: 400px;
+    background-color: white;
+}
+
+.pell-content h1 {
+    font-size: 2rem;
+}
+
+.pell-content h2 {
+    font-size: 1.5rem;
+}
+
+/* END PELL */
 /* HELPERS */
 
 .width-100 {

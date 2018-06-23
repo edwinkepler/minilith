@@ -1,15 +1,8 @@
 $(document).ready(function() {
-    // $('#summernote').summernote({
-    //     height: 500,
-    //     toolbar: [
-    //         // [groupName, [list of button]]
-    //         ['style', ['bold', 'italic', 'underline', 'clear']],
-    //         ['font', ['strikethrough', 'superscript', 'subscript']],
-    //         ['para', ['ul', 'ol', 'paragraph']]
-    //     ]
-    // });
-
-    $('main').css('min-height', $(document).height() - $('.hero').height() - $('.navbar-container').height());
+    var main_size = $('main').css('min-height', $(document).height() - $('.hero').height() - $('.navbar-container').height());
+    $(window).on('resize', function() {
+        $('main').css('min-height', $(document).height() - $('.hero').height() - $('.navbar-container').height());
+    })
 });
 
 document.addEventListener('DOMContentLoaded', function () {

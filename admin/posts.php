@@ -13,24 +13,26 @@
     if(isset($_GET["action"])) {
         if($_GET["action"] == "create") {
             Main::definePage();
-            Main::setPageName("Create new post");
+            Main::setPageName("New post");
 
-            $main->setCss("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css");
-            $main->setScript("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js");
+            $main->setCss("https://unpkg.com/pell/dist/pell.min.css");
+            $main->setScript("https://unpkg.com/pell");
             $main->setScript("assets/js/posts.create.js");
 
             require("includes/header.php");
+            require("includes/posts/create.functions.php");
             require("includes/posts/create.php");
             require("includes/footer.php");
         } elseif($_GET["action"] == "update" && isset($_GET["id"])) {
             Main::definePage();
             Main::setPageName("Update post");
 
-            $main->setCss("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css");
-            $main->setScript("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js");
+            $main->setCss("https://unpkg.com/pell/dist/pell.min.css");
+            $main->setScript("https://unpkg.com/pell");
             $main->setScript("assets/js/posts.create.js");
 
             require("includes/header.php");
+            require("includes/posts/create.functions.php");
             require("includes/posts/create.php");
             require("includes/footer.php");
         } elseif($_GET["action"] == "delete" && isset($_GET["id"])) {

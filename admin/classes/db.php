@@ -33,7 +33,7 @@
             $_username = mysqli_real_escape_string($this->connection, $_username);
             $_filename = mysqli_real_escape_string($this->connection, $_filename);
 
-            $result = mysqli_query($this->connection, "INSERT INTO posts VALUES ('', '$_title', '$_content', '$_excerpt', '$_date', '$_username', '$_filename')");
+            $result = mysqli_query($this->connection, "INSERT INTO posts VALUES (null, '$_title', '$_content', '$_excerpt', '$_date', '$_username', '$_filename')");
             if(!$result && $this->app_vars["is_debug"]) {
                 die("createPost() query failed. " . mysqli_error($this->connection));
             }
