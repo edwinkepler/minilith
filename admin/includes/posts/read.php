@@ -9,56 +9,101 @@
         exit;
     }
 ?>
-<div class="container">
-    <div class="row">
-        <div class="col-1">
-            <span>ID</span>
+    <section class="hero is-info">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-6">
+                        <h1 class="title">
+                            <?php echo PAGE_NAME ?>
+                        </h1>
+                    </div>
+                    <div class="column is-6 has-text-right">
+                        <a href="posts.php?action=create" class="button is-primary">Add new</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-1">
-            <span>Thumbnail</span>
+    </section>
+    <main class="has-background-light">
+        <div class="container">
+            <div class="list-header">
+                <div class="columns">
+                    <div class="column is-1 has-text-centered">
+                        <span class="has-text-grey-light ">ID</span>
+                    </div>
+                    <div class="column is-2 has-text-centered">
+                        <span class="has-text-grey-light">Thumbnail</span>
+                    </div>
+                    <div class="column is-4 has-text-centered">
+                        <span class="has-text-grey-light">Content</span>
+                    </div>
+                    <div class="column is-1 has-text-centered">
+                        <span class="has-text-grey-light">Status</span>
+                    </div>
+                    <div class="column is-1 has-text-centered">
+                        <span class="has-text-grey-light">Author</span>
+                    </div>
+                    <div class="column is-3 has-text-centered">
+                        <span class="has-text-grey-light">Action</span>
+                    </div>
+                </div>
+            </div>
+            <?php
+                foreach($main->db()->queryPosts() as $post) {
+            ?>
+            <a href="posts.php?action=update&id=<?php echo $post["id"]; ?>">
+                <div class="list-item">
+                    <div class="columns is-desktop is-vcentered">
+                        <div class="column is-1 has-text-centered">
+                            <span class="has-text-dark"><?php echo $post["id"]; ?></span>
+                        </div>
+                        <div class="column is-2 padding-top-bottom-075rem">
+                            <div class="list-item-img" style="background-image: url('<?php echo "../storage/images/" . $post["image"]; ?>')"></div>
+                        </div>
+                        <div class="column is-4">
+                            <span class="has-text-dark"><?php echo $post["title"]; ?></span>
+                            <p class="has-text-grey"><?php echo $post["excerpt"]; ?></p>
+                        </div>
+                        <div class="column is-1">
+
+                        </div>
+                        <div class="column is-1">
+                            <span class="has-text-dark"><?php echo $post["author"]; ?></span>
+                        </div>
+                        <div class="column is-3">
+                            <button id="<?php echo $post["id"]; ?>" class="modal-trigger button is-danger">
+                                <span class="icon is-small">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <div id="delete-<?php echo $post["id"]; ?>" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Delete item
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <p>Are you sure you want to delete post <?php echo $post["title"]; ?></p>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="posts.php?action=delete&id=<?php echo $post["id"]; ?>" class="card-footer-item modal-button-yes">Yes</a>
+                            <a href="#" class="card-footer-item modal-button-no">No</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <?php
+                } // end foreach
+            ?>
         </div>
-        <div class="col-2">
-            <span>Title</span>
-        </div>
-        <div class="col-4">
-            <span>Date</span>
-        </div>
-        <div class="col-1">
-            <span>Author</span>
-        </div>
-        <div class="col-3">
-            <span>Action</span>
-        </div>
-    </div>
-    <?php
-        foreach($main->db()->queryPosts() as $post) {
-    ?>
-    <div class="row">
-        <div class="col-1">
-            <span><?php echo $post["id"]; ?></span>
-        </div>
-        <div class="col-1">
-            <span><?php echo $post["image"]; ?></span>
-        </div>
-        <div class="col-2">
-            <span><?php echo $post["title"]; ?></span>
-        </div>
-        <div class="col-4">
-            <span><?php echo $post["date_published"]; ?></span>
-        </div>
-        <div class="col-1">
-            <span><?php echo $post["author"]; ?></span>
-        </div>
-        <div class="col-3">
-            <form action="posts.php?action=update&id=<?php echo $post["id"]; ?>" method="POST">
-                <button type="submit" name="update" class="btn btn-primary">Edit</button>
-            </form>
-            <form action="posts.php?action=delete&id=<?php echo $post["id"]; ?>" method="POST">
-                <button type="submit" name="submit" class="btn btn-danger">Delete</button>
-            </form>
-        </div>
-    </div>
-    <?php
-        }
-    ?>
-</div>
+    </main>

@@ -25,10 +25,64 @@ body {
 }
 
 /* END HERO */
+/* LISTS */
+
+.list-header {
+    margin: 15px 0;
+    padding: 0 0.75rem;
+}
+
+.list-item {
+    background-color: white;
+    border-radius: 3px;
+    margin: 15px 0;
+    padding: 0 0.75rem;
+    transition: box-shadow 0.2s;
+}
+
+.list-item:hover {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.list-item * {
+    cursor: pointer;
+}
+
+/* Some black magic fuckery from SO
+https://stackoverflow.com/a/32585024 */
+.list-item p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    /* line-height: X;
+    max-height: X*N; */
+}
+
+.list-item-img {
+    height: 100px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.list-item button {
+    float: right;
+    margin-left: 15px;
+}
+
+/* END LISTS */
 /* HELPERS */
 
 .width-100 {
     width: 100%;
+}
+
+.padding-top-bottom-075rem {
+    padding: 0 0.75rem;
 }
 
 .padding-top-15px {

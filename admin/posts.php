@@ -17,6 +17,7 @@
 
             $main->setCss("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css");
             $main->setScript("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js");
+            $main->setScript("assets/js/posts.create.js");
 
             require("includes/header.php");
             require("includes/posts/create.php");
@@ -27,6 +28,7 @@
 
             $main->setCss("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css");
             $main->setScript("https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js");
+            $main->setScript("assets/js/posts.create.js");
 
             require("includes/header.php");
             require("includes/posts/create.php");
@@ -38,6 +40,9 @@
     } else {
         Main::definePage();
         Main::setPageName("Posts");
+
+        $main->setScript("assets/js/posts.read.js");
+
         require("includes/header.php");
         require("includes/posts/read.php");
     }
