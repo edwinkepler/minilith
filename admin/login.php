@@ -25,7 +25,7 @@
     <div class="background"></div>
     <div class="columns is-mobile">
         <div class="column is-4 is-offset-4">
-            <form class="login-form" action="includes/login/read.php" method="POST">
+            <form class="login-form" action="includes/login/login.read.php" method="POST">
                 <input type="hidden" name="csrf" value="<?php echo $_SESSION["csrf"] ?>">
                 <div class="field">
                     <label class="label">E-mail</label>

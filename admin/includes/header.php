@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="navbar-end">
-                            <a class="navbar-item" href="includes/index/logout.php">
+                            <a class="navbar-item" href="includes/index/index.logout.php">
                                 Logout
                             </a>
                         </div>

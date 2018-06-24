@@ -20,8 +20,8 @@
             $main->setScript("assets/js/pages.create.js");
 
             require("includes/header.php");
-            require("includes/pages/create.functions.php");
-            require("includes/pages/create.php");
+            require("includes/pages/pages.create.functions.php");
+            require("includes/pages/pages.create.php");
             require("includes/footer.php");
         } elseif($_GET["action"] == "update" && isset($_GET["id"])) {
             Main::definePage();
@@ -32,12 +32,12 @@
             $main->setScript("assets/js/pages.create.js");
 
             require("includes/header.php");
-            require("includes/pages/create.functions.php");
-            require("includes/pages/create.php");
+            require("includes/pages/pages.create.functions.php");
+            require("includes/pages/pages.create.php");
             require("includes/footer.php");
         } elseif($_GET["action"] == "delete" && isset($_GET["id"])) {
             Main::definePage();
-            require("includes/pages/delete.php");
+            require("includes/pages/pages.delete.php");
         }
     } else {
         Main::definePage();
@@ -46,6 +46,6 @@
         $main->setScript("assets/js/pages.read.js");
 
         require("includes/header.php");
-        require("includes/pages/read.php");
+        require("includes/pages/pages.read.php");
     }
 ?>
