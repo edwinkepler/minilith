@@ -5,7 +5,7 @@
     session_start();
     if(!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
         header("Location: login.php");
-        exit;
+        exit();
     }
 
     $main = new Main($db, $config_app);

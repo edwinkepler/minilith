@@ -1,7 +1,7 @@
 <?php
     if(!defined("PAGE")) {
         header("HTTP/1.1 404 File Not Found", 404);
-        exit;
+        exit();
     }
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo PAGE_NAME ?> | minilith</title>
+    <title>minilith | <?php echo PAGE_NAME ?></title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -56,6 +56,19 @@
                                         Show all
                                     </a>
                                     <a class="navbar-item" href="posts.php?action=create">
+                                        Add new
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link" href="posts.php">
+                                    Pages
+                                </a>
+                                <div class="navbar-dropdown is-boxed">
+                                    <a class="navbar-item" href="pages.php">
+                                        Show all
+                                    </a>
+                                    <a class="navbar-item" href="pages.php?action=create">
                                         Add new
                                     </a>
                                 </div>
