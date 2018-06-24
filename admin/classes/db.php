@@ -25,12 +25,20 @@
             return $result;
         }
 
+        public function queryPost($_id) {
+            $query = "SELECT * FROM posts WHERE id='$_id'";
+            $result = mysqli_query($this->connection, $query);
+            if(!$result && $this->app_vars["is_debug"]) {
+                die("Post table query failed. " . mysqli_error($this->connection));
+            }
+            return mysqli_fetch_assoc($result);
+        }
+
         public function createPost($_title, $_content, $_excerpt, $_date, $_username, $_filename) {
             $_title = mysqli_real_escape_string($this->connection, $_title);
             $_content = mysqli_real_escape_string($this->connection, $_content);
             $_excerpt = mysqli_real_escape_string($this->connection, $_excerpt);
             $_date = mysqli_real_escape_string($this->connection, $_date);
-            $_username = mysqli_real_escape_string($this->connection, $_username);
             $_filename = mysqli_real_escape_string($this->connection, $_filename);
 
             $result = mysqli_query($this->connection, "INSERT INTO posts VALUES (null, '$_title', '$_content', '$_excerpt', '$_date', '$_username', '$_filename')");
@@ -44,7 +52,6 @@
             $_content = mysqli_real_escape_string($this->connection, $_content);
             $_excerpt = mysqli_real_escape_string($this->connection, $_excerpt);
             $_date = mysqli_real_escape_string($this->connection, $_date);
-            $_username = mysqli_real_escape_string($this->connection, $_username);
             $_filename = mysqli_real_escape_string($this->connection, $_filename);
 
             $result = mysqli_query($this->connection, "UPDATE posts SET title='$_title', content='$_content', excerpt='$_excerpt', date_published='$_date', author='$_username', image='$_filename' WHERE id='$_id'");
@@ -69,13 +76,49 @@
             return mysqli_fetch_assoc($result);
         }
 
-        public function queryPost($_id) {
-            $query = "SELECT * FROM posts WHERE id='$_id'";
+        public function queryPages() {
+            $query = "SELECT * FROM pages";
             $result = mysqli_query($this->connection, $query);
             if(!$result && $this->app_vars["is_debug"]) {
-                die("Post table query failed. " . mysqli_error($this->connection));
+                die("queryPages() query failed. " . mysqli_error($this->connection));
+            }
+            return $result;
+        }
+
+        public function createPage($_title, $_content, $_is_published, $_username) {
+            $_title = mysqli_real_escape_string($this->connection, $_title);
+            $_content = mysqli_real_escape_string($this->connection, $_content);
+
+            $result = mysqli_query($this->connection, "INSERT INTO pages VALUES (null, '$_title', '$_content', $_is_published, '$_username')");
+            if(!$result && $this->app_vars["is_debug"]) {
+                die("createPage() query failed. " . mysqli_error($this->connection));
+            }
+        }
+
+        public function updatePage($_id, $_title, $_content, $_is_published, $_username) {
+            $_title = mysqli_real_escape_string($this->connection, $_title);
+            $_content = mysqli_real_escape_string($this->connection, $_content);
+
+            $result = mysqli_query($this->connection, "UPDATE pages SET title='$_title', content='$_content', status='$_is_published', author='$_username' WHERE id='$_id'");
+            if(!$result && $this->app_vars["is_debug"]) {
+                die("updatePage() query failed. " . mysqli_error($this->connection));
+            }
+        }
+
+        public function getPage($_id) {
+            $query = "SELECT * FROM pages WHERE id='$_id'";
+            $result = mysqli_query($this->connection, $query);
+            if(!$result && $this->app_vars["is_debug"]) {
+                die("getPage() query failed. " . mysqli_error($this->connection));
             }
             return mysqli_fetch_assoc($result);
+        }
+
+        public function deletePage($_id) {
+            $result = mysqli_query($this->connection, "DELETE FROM pages WHERE id='$_id'");
+            if(!$result && $this->app_vars["is_debug"]) {
+                die("deletePage() query failed. " . mysqli_error($this->connection));
+            }
         }
     }
 ?>

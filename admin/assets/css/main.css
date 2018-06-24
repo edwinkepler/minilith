@@ -58,8 +58,8 @@ https://stackoverflow.com/a/32585024 */
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2; /* number of lines to show */
-    /* line-height: X;
-    max-height: X*N; */
+    line-height: 1.5rem;
+    max-height: 3rem;
 }
 
 .list-item-img {
