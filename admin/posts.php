@@ -1,5 +1,5 @@
 <?php
-    require_once("classes/main.php");
+    require_once("classes/class.main.php");
 
     ob_start();
     session_start();

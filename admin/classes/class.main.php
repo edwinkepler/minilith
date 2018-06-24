@@ -1,7 +1,7 @@
 <?php
     require("../config/app.php");
     require("../config/db.php");
-    require("db.php");
+    require("class.db.php");
 
     class Main {
         private $db;
