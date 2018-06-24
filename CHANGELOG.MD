@@ -13,4 +13,5 @@
 - Admin/DB class
 - Admin/Posts
 - Admin/Pages
+- Admin/Storage
 - Material theme boilerplate
