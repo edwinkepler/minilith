@@ -11,6 +11,6 @@
 - Storage class
 - Admin/Main class
 - Admin/DB class
-- Admin/Session class
-- Admin/Post/Create
+- Admin/Posts
+- Admin/Pages
 - Material theme boilerplate
