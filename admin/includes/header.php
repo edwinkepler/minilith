@@ -73,6 +73,10 @@
                                     </a>
                                 </div>
                             </div>
+                            <a class="navbar-item" href="storage.php">
+                                Storage
+                            </a
+                            </div>
                         </div>
                         <div class="navbar-end">
                             <a class="navbar-item" href="includes/index/logout.php">

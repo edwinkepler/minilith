@@ -8,6 +8,10 @@ body {
     max-width: 900px;
 }
 
+main {
+    padding-bottom: 1rem;
+}
+
 /* END MAIN */
 /* MAIN NAVIGATION */
 
@@ -72,6 +76,35 @@ https://stackoverflow.com/a/32585024 */
 .list-item button {
     float: right;
     margin-left: 15px;
+}
+
+.storage-img {
+    position: relative;
+    width: calc(25% - 0.75rem);
+    margin: 0.75rem 0.375rem;
+    height: 100px;
+    float: left;
+    cursor: pointer;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: box-shadow 0.2s;
+}
+
+.storage-img:hover {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.storage-img span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 /* END LISTS */
