@@ -1,50 +1,50 @@
 <?php
-    if(!defined("PAGE")) {
-        header("HTTP/1.1 404 File Not Found", 404);
-        exit();
+if (!defined("PAGE")) {
+    header("HTTP/1.1 404 File Not Found", 404);
+    exit;
+}
+
+if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
+    header("Location: login.php");
+    exit;
+}
+
+$_SESSION["errors"] = array();
+
+if (isset($_POST["submit_page"])) {
+    $_SESSION["title"]      = $_POST["title"];
+    $_SESSION["content"]    = $_POST["content"];
+
+    validateContent();
+
+    // Add to database
+    if($_POST["title"] != "" && $_POST["content"] != "" && empty($_SESSION["errors"])) {
+        $main->db()->createPage($_POST["title"], $_POST["content"], true, $_SESSION["username"]);
+        header("Location: pages.php");
+        exit;
     }
+} elseif (isset($_POST["update_page"])) {
+    $_SESSION["title"]      = $_POST["title"];
+    $_SESSION["content"]    = $_POST["content"];
 
-    if(!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
-        header("Location: login.php");
-        exit();
+    validateContent();
+
+    // Update post in database
+    if ($_POST["title"] != "" && $_POST["content"] != "" && empty($_SESSION["errors"])) {
+        $main->db()->updatePage($_SESSION["page_id"], $_POST["title"], $_POST["content"], true, $_SESSION["username"]);
+        header("Location: pages.php");
+        exit;
     }
+} else {
+    unsetSession();
+}
 
-    $_SESSION["errors"] = array();
-
-    if(isset($_POST["submit_page"])) {
-        $_SESSION["title"]      = $_POST["title"];
-        $_SESSION["content"]    = $_POST["content"];
-
-        validateContent();
-
-        // Add to database
-        if($_POST["title"] != "" && $_POST["content"] != "" && empty($_SESSION["errors"])) {
-            $main->db()->createPage($_POST["title"], $_POST["content"], true, $_SESSION["username"]);
-            header("Location: pages.php");
-            exit();
-        }
-    } elseif(isset($_POST["update_page"])) {
-        $_SESSION["title"]      = $_POST["title"];
-        $_SESSION["content"]    = $_POST["content"];
-
-        validateContent();
-
-        // Update post in database
-        if($_POST["title"] != "" && $_POST["content"] != "" && empty($_SESSION["errors"])) {
-            $main->db()->updatePage($_SESSION["page_id"], $_POST["title"], $_POST["content"], true, $_SESSION["username"]);
-            header("Location: pages.php");
-            exit();
-        }
-    } else {
-        unsetSession();
-    }
-
-    if($_GET["action"] == "update") {
-        $post = $main->db()->getPage($_GET["id"]);
-        $_SESSION["title"]      = $post["title"];
-        $_SESSION["content"]    = $post["content"];
-        $_SESSION["page_id"]    = $_GET["id"];
-    }
+if ($_GET["action"] == "update") {
+    $post = $main->db()->getPage($_GET["id"]);
+    $_SESSION["title"]      = $post["title"];
+    $_SESSION["content"]    = $post["content"];
+    $_SESSION["page_id"]    = $_GET["id"];
+}
 ?>
     <section class="hero is-info">
         <div class="hero-body">

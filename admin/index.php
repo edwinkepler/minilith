@@ -1,15 +1,18 @@
 <?php
-    require("classes/main.php");
+require("../config/app.php");
+require("../config/db.php");
+require("classes/class.main.php");
+require("classes/class.db.php");
 
-    ob_start();
-    session_start();
-    if(!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
-        header("Location: login.php");
-    }
+ob_start();
+session_start();
+if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
+    header("Location: login.php");
+}
 
-    $main = new Main($db, $config_app);
-    Main::definePage();
-    Main::setPageName("Dashboard");
+$main = new Main($db, $config_app);
+Main::definePage();
+Main::setPageName("Dashboard");
 ?>
 <?php require("includes/header.php"); ?>
 

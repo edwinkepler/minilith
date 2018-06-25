@@ -1,8 +1,8 @@
 <?php
-    if(!defined("PAGE")) {
-        header("HTTP/1.1 404 File Not Found", 404);
-        exit();
-    }
+if (!defined("PAGE")) {
+    header("HTTP/1.1 404 File Not Found", 404);
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,8 +75,10 @@
                             </div>
                             <a class="navbar-item" href="storage.php">
                                 Storage
-                            </a
-                            </div>
+                            </a>
+                            <a class="navbar-item" href="themes.php">
+                                Themes
+                            </a>
                         </div>
                         <div class="navbar-end">
                             <a class="navbar-item" href="includes/index/index.logout.php">

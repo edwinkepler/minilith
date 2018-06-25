@@ -1,12 +1,13 @@
 <?php
-    ob_start();
-    session_start();
-    $_SESSION["csrf"] = md5(time());
+ob_start();
+session_start();
 
-    if(isset($_SESSION["username"]) && isset($_SESSION["logged_in"])) {
-        header("Location: index.php");
-        exit();
-    }
+$_SESSION["csrf"] = md5(time());
+
+if (isset($_SESSION["username"]) && isset($_SESSION["logged_in"])) {
+    header("Location: index.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
