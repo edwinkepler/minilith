@@ -40,6 +40,7 @@ if (isset($_GET["action"])) {
         require("includes/footer.php");
     } elseif ($_GET["action"] == "delete" && isset($_GET["id"])) {
         Main::definePage();
+
         require("includes/posts/posts.delete.php");
     }
 } else {
