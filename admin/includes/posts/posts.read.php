@@ -50,7 +50,7 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
                 </div>
             </div>
             <?php
-                foreach($main->db()->queryPosts() as $post) {
+                foreach($posts->queryPosts() as $post) {
             ?>
             <a href="posts.php?action=update&id=<?php echo $post["id"]; ?>">
                 <div class="list-item">
