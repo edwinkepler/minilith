@@ -26,7 +26,7 @@ if (isset($_POST["submit_post"])) {
     if ($_POST["title"] != "" && $_POST["content"] != "" && $_POST["date"] != "" && $_FILES["thumbnail"] != "" && empty($_SESSION["errors"])) {
         $excerpt = mb_substr(strip_tags($_POST["content"]), 0, $excerpt_length);
         $excerpt .= "...";
-        $main->db()->createPost($_POST["title"], $_POST["content"], $excerpt, $_POST["date"], $_SESSION["username"], $_FILES["thumbnail"]["name"]);
+        $posts->createPost($_POST["title"], $_POST["content"], $excerpt, $_POST["date"], $_SESSION["username"], $_FILES["thumbnail"]["name"]);
         header("Location: posts.php");
         exit;
     }
@@ -48,7 +48,7 @@ if (isset($_POST["submit_post"])) {
     if ($_POST["title"] != "" && $_POST["content"] != "" && $_POST["date"] != "" && $_FILES["thumbnail"] != "" && empty($_SESSION["errors"])) {
         $excerpt = mb_substr(strip_tags($_POST["content"]), 0, $excerpt_length);
         $excerpt .= "...";
-        $main->db()->updatePost($_SESSION["post_id"], $_POST["title"], $_POST["content"], $excerpt, $_POST["date"], $_SESSION["username"], $_SESSION["file"]);
+        $posts->updatePost($_SESSION["post_id"], $_POST["title"], $_POST["content"], $excerpt, $_POST["date"], $_SESSION["username"], $_SESSION["file"]);
         echo $_SESSION["post_id"];
         header("Location: posts.php");
         exit;
@@ -58,7 +58,7 @@ if (isset($_POST["submit_post"])) {
 }
 
 if ($_GET["action"] == "update") {
-    $post = $main->db()->getPost($_GET["id"]);
+    $post = $posts->getPost($_GET["id"]);
     $_SESSION["title"]      = $post["title"];
     $_SESSION["content"]    = $post["content"];
     $_SESSION["date"]       = $post["date_published"];

@@ -9,8 +9,7 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
     exit;
 }
 
-$main->db()->deletePost($_GET["id"]);
+$posts->deletePost($_GET["id"]);
 
 header("Location: posts.php");
 exit;
-?>

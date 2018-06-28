@@ -62,4 +62,3 @@ function unsetSession()
     unset($_SESSION["date"]);
     unset($_SESSION["file"]);
 }
-?>
