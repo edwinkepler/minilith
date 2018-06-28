@@ -47,7 +47,7 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
                 </div>
             </div>
             <?php
-                foreach($main->db()->queryPages() as $page) {
+                foreach($pages->queryPages() as $page) {
             ?>
             <a href="pages.php?action=update&id=<?php echo $page["id"]; ?>">
                 <div class="list-item">

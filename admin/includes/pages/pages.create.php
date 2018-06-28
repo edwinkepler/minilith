@@ -19,7 +19,7 @@ if (isset($_POST["submit_page"])) {
 
     // Add to database
     if($_POST["title"] != "" && $_POST["content"] != "" && empty($_SESSION["errors"])) {
-        $main->db()->createPage($_POST["title"], $_POST["content"], true, $_SESSION["username"]);
+        $pages->createPage($_POST["title"], $_POST["content"], true, $_SESSION["username"]);
         header("Location: pages.php");
         exit;
     }
@@ -31,7 +31,7 @@ if (isset($_POST["submit_page"])) {
 
     // Update post in database
     if ($_POST["title"] != "" && $_POST["content"] != "" && empty($_SESSION["errors"])) {
-        $main->db()->updatePage($_SESSION["page_id"], $_POST["title"], $_POST["content"], true, $_SESSION["username"]);
+        $pages->updatePage($_SESSION["page_id"], $_POST["title"], $_POST["content"], true, $_SESSION["username"]);
         header("Location: pages.php");
         exit;
     }
@@ -40,7 +40,7 @@ if (isset($_POST["submit_page"])) {
 }
 
 if ($_GET["action"] == "update") {
-    $post = $main->db()->getPage($_GET["id"]);
+    $post = $pages->getPage($_GET["id"]);
     $_SESSION["title"]      = $post["title"];
     $_SESSION["content"]    = $post["content"];
     $_SESSION["page_id"]    = $_GET["id"];

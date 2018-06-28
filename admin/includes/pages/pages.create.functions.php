@@ -25,4 +25,3 @@ function unsetSession()
     unset($_SESSION["title"]);
     unset($_SESSION["content"]);
 }
-?>

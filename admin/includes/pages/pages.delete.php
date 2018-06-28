@@ -9,8 +9,7 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
     exit;
 }
 
-$main->db()->deletePage($_GET["id"]);
+$pages->deletePage($_GET["id"]);
 
 header("Location: pages.php");
 exit;
-?>
