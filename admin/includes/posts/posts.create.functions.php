@@ -38,7 +38,7 @@ function validateImage()
         }
 
         if (filesize($_FILES["thumbnail"]["tmp_name"]) > 0) {
-            if(exif_imagetype($_FILES["thumbnail"]["tmp_name"]) === false) {
+            if (exif_imagetype($_FILES["thumbnail"]["tmp_name"]) === false) {
                 array_push($_SESSION["errors"], "File must be an image");
             }
         } elseif (filesize($_FILES["thumbnail"]["tmp_name"]) == 0) {
