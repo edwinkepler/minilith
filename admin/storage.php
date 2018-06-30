@@ -12,7 +12,7 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
     exit;
 }
 
-$main = new Main($db, $config_app);
+$main = new Main($config_db, $config_app);
 
 Main::definePage();
 Main::setPageName("Storage");
