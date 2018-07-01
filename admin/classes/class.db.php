@@ -25,16 +25,4 @@ class DB
     {
         return $this->connection;
     }
-
-    public function queryUsers()
-    {
-        $query = "SELECT * FROM users";
-        $result = mysqli_query($this->connection, $query);
-
-        if (!$result && $this->app_vars["is_debug"]) {
-            die("queryUsers() query failed. " . mysqli_error($this->connection));
-        }
-
-        return $result;
-    }
 }
