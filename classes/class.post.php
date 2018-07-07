@@ -14,21 +14,21 @@
         public function title() {
             if(isset($this->id)) {
                 $post = $this->db->queryPost($this->id);
-                return $post["title"];
+                return $post['title'];
             }
         }
 
         public function content() {
             if(isset($this->id)) {
                 $post = $this->db->queryPost($this->id);
-                return $post["content"];
+                return $post['content'];
             }
         }
 
         public function image() {
             if(isset($this->id)) {
                 $post = $this->db->queryPost($this->id);
-                return $post["image"];
+                return $post['image'];
             }
         }
     }

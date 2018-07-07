@@ -9,13 +9,13 @@
         }
 
         public function images() {
-            if(!isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != "on") {
-                $protocol = "http://"; 
+            if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
+                $protocol = 'http://'; 
             } else {
-                $protocol = "https://"; 
+                $protocol = 'https://'; 
             }
 
-            return $protocol . $_SERVER["HTTP_HOST"] . $this->app_vars["path"] . "/storage/images/";
+            return $protocol . $_SERVER['HTTP_HOST'] . $this->app_vars['path'] . '/storage/images/';
         }
     }
 ?>

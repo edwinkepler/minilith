@@ -11,13 +11,13 @@
         public function url() {
             $app_query = $this->db->queryApp();
 
-            if(!isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != "on") {
-                $protocol = "http://"; 
+            if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
+                $protocol = 'http://'; 
             } else {
-                $protocol = "https://"; 
+                $protocol = 'https://'; 
             }
 
-            return $protocol . $_SERVER["HTTP_HOST"] . $this->app_vars["path"] . "/themes/" . $app_query["theme"];
+            return $protocol . $_SERVER['HTTP_HOST'] . $this->app_vars['path'] . '/themes/' . $app_query['theme'];
         }
     }
 ?>
