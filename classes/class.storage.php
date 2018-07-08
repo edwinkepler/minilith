@@ -1,14 +1,17 @@
 <?php
-class Storage {
+class Storage
+{
     private $db;
     private $app_vars;
 
-    public function __construct($_db, $_app_vars) {
+    public function __construct($_db, $_app_vars)
+    {
         $this->db = $_db;
         $this->app_vars = $_app_vars;
     }
 
-    public function images() {
+    public function images()
+    {
         if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
             $protocol = 'http://'; 
         } else {

@@ -1,9 +1,11 @@
 <?php
-class DB {
+class DB
+{
     private $connection;
     private $config_app;
 
-    function __construct($_config_db, $_config_app) {
+    function __construct($_config_db, $_config_app)
+    {
         $this->connection = mysqli_connect($_config_db['host'], $_config_db['user'], $_config_db['pass'], $_config_db['name']);
         $this->config_app = $_config_app;
 
@@ -14,7 +16,8 @@ class DB {
         $this->connection->set_charset($this->config_app['charset']);
     }
 
-    function queryApp() {
+    function queryApp()
+    {
         $query = 'SELECT * FROM app';
         $result = mysqli_query($this->connection, $query);
         if(!$result && $this->config_app['is_debug']) {
@@ -23,7 +26,8 @@ class DB {
         return mysqli_fetch_assoc($result);
     }
 
-    function queryPosts() {
+    function queryPosts()
+    {
         $query = 'SELECT * FROM posts';
         $result = mysqli_query($this->connection, $query);
         if(!$result && $this->config_app['is_debug']) {
@@ -32,7 +36,8 @@ class DB {
         return $result;
     }
 
-    function queryPost($_id) {
+    function queryPost($_id)
+    {
         $query = "SELECT * FROM posts WHERE id='$_id'";
         $result = mysqli_query($this->connection, $query);
         if(!$result && $this->config_app['is_debug']) {
