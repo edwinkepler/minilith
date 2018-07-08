@@ -1,10 +1,7 @@
 <?php
-    namespace Config {
-        $db = [
-            "host" => "localhost",
-            "user" => "root",
-            "pass" => "",
-            "name" => "minilith"
-        ];
-    }
-?>
+$config_db = [
+    "host" => "localhost",
+    "user" => "root",
+    "pass" => "root",
+    "name" => "minilith"
+];

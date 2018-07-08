@@ -5,10 +5,10 @@
     <div class="columns">
         <div class="column">
             <?php
-                if($main->posts()->count() == 0) {
-                    echo "<h1>No posts found</h1>";
-                } else {
-                    foreach($main->posts()->all() as $post) {
+            if($main->posts()->count() == 0) {
+                echo "<h1>No posts found</h1>";
+            } else {
+                foreach($main->posts()->all() as $post) {
             ?>
             <a href="index.php?post=<?php echo $post["id"] ?>">
                 <div class="card">
@@ -22,8 +22,8 @@
                 </div>
             </a>
             <?php
-                    }
-                }
+                } // foreach($main->posts()->all() as $post)
+            } // if($main->posts()->count() == 0)
             ?>
         </div>
     </div>
