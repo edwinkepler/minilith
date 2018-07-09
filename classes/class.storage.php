@@ -12,7 +12,7 @@ class Storage
 
     public function imagesUrl()
     {
-        if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
+        if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
             $protocol = 'http://'; 
         } else {
             $protocol = 'https://'; 
