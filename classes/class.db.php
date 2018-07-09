@@ -4,7 +4,7 @@ class DB
     private $connection;
     private $config_app;
 
-    function __construct($_config_db, $_config_app)
+    public function __construct($_config_db, $_config_app)
     {
         $this->connection = mysqli_connect($_config_db['host'], $_config_db['user'], $_config_db['pass'], $_config_db['name']);
         $this->config_app = $_config_app;
@@ -16,7 +16,7 @@ class DB
         $this->connection->set_charset($this->config_app['charset']);
     }
 
-    function queryApp()
+    public function queryApp()
     {
         $query = 'SELECT * FROM app';
         $result = mysqli_query($this->connection, $query);
@@ -26,7 +26,7 @@ class DB
         return mysqli_fetch_assoc($result);
     }
 
-    function queryPosts()
+    public function queryPosts()
     {
         $query = 'SELECT * FROM posts';
         $result = mysqli_query($this->connection, $query);
@@ -36,12 +36,22 @@ class DB
         return $result;
     }
 
-    function queryPost($_id)
+    public function queryPost($_id)
     {
         $query = "SELECT * FROM posts WHERE id='$_id'";
         $result = mysqli_query($this->connection, $query);
         if (!$result && $this->config_app['is_debug']) {
-            die('Post table query failed. ' . mysqli_error($this->connection));
+            die('Posts table query failed. ' . mysqli_error($this->connection));
+        }
+        return mysqli_fetch_assoc($result);
+    }
+
+    public function queryUser($_username)
+    {
+        $query = "SELECT * FROM users WHERE username='$_username'";
+        $result = mysqli_query($this->connection, $query);
+        if (!$result && $this->config_app['is_debug']) {
+            die('Users table query failed. ' . mysqli_error($this->connection));
         }
         return mysqli_fetch_assoc($result);
     }

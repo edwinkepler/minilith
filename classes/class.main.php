@@ -7,6 +7,7 @@ class Main
     private $posts;
     private $post;
     private $storage;
+    private $users;
 
     public function __construct($_app_vars)
     {
@@ -28,6 +29,9 @@ class Main
 
         require($_SERVER['DOCUMENT_ROOT'] . $_app_vars['path'] . '/classes/class.storage.php');
         $this->storage = new Storage($this->db, $_app_vars);
+
+        require($_SERVER['DOCUMENT_ROOT'] . $_app_vars['path'] . '/classes/class.users.php');
+        $this->users = new Users($this->db, $_app_vars);
 
         if ($_app_vars['is_debug']) {
             ini_set('display_errors', 1);
@@ -59,5 +63,10 @@ class Main
     public function storage()
     {
         return $this->storage;
+    }
+
+    public function users()
+    {
+        return $this->users;
     }
 }
