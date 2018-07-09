@@ -10,7 +10,7 @@ class Storage
         $this->app_vars = $_app_vars;
     }
 
-    public function images()
+    public function imagesUrl()
     {
         if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on') {
             $protocol = 'http://'; 
