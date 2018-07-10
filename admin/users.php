@@ -52,4 +52,3 @@ if (isset($_GET["action"])) {
     require("includes/users/users.read.php");
     require("includes/footer.php");
 }
-?>
