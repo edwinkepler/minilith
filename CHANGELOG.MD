@@ -9,6 +9,7 @@
 - Posts class
 - Post class
 - Storage class
+- User class
 - Admin/Main class
 - Admin/DB class
 - Admin/Posts
