@@ -1,5 +1,12 @@
 <?php
 require('config/app.php');
+
+if ($config_app['is_debug'] == true) {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}
+
 require('classes/class.main.php');
 $main = new Main($config_app);
 
