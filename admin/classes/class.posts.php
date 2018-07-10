@@ -11,7 +11,7 @@ class Posts
         $this->connection = $_connection;
     }
 
-    public function queryPosts()
+    public function queryPosts(): mysqli_result
     {
         $query = "SELECT * FROM posts";
         $result = mysqli_query($this->connection, $query);
@@ -19,7 +19,7 @@ class Posts
         return $result;
     }
 
-    public function queryPost($_id)
+    public function queryPost(int $_id): array
     {
         $query = "SELECT * FROM posts WHERE id='$_id'";
         $result = mysqli_query($this->connection, $query);
@@ -27,7 +27,7 @@ class Posts
         return mysqli_fetch_assoc($result);
     }
 
-    public function createPost($_title, $_content, $_excerpt, $_date, $_username, $_filename)
+    public function createPost(string $_title, string $_content, string $_excerpt, string $_date, string $_username, string $_filename): bool
     {
         $_title = mysqli_real_escape_string($this->connection, $_title);
         $_content = mysqli_real_escape_string($this->connection, $_content);
@@ -36,9 +36,11 @@ class Posts
         $_filename = mysqli_real_escape_string($this->connection, $_filename);
 
         $result = mysqli_query($this->connection, "INSERT INTO posts VALUES (null, '$_title', '$_content', '$_excerpt', '$_date', '$_username', '$_filename')");
+
+        return $result;
     }
 
-    public function updatePost($_id, $_title, $_content, $_excerpt, $_date, $_username, $_filename)
+    public function updatePost(int $_id, string $_title, string $_content, string $_excerpt, string $_date, string $_username, string $_filename): bool
     {
         $_title = mysqli_real_escape_string($this->connection, $_title);
         $_content = mysqli_real_escape_string($this->connection, $_content);
@@ -47,14 +49,18 @@ class Posts
         $_filename = mysqli_real_escape_string($this->connection, $_filename);
 
         $result = mysqli_query($this->connection, "UPDATE posts SET title='$_title', content='$_content', excerpt='$_excerpt', date_published='$_date', author='$_username', image='$_filename' WHERE id='$_id'");
+
+        return $result;
     }
 
-    public function deletePost($_id)
+    public function deletePost(int $_id): bool
     {
         $result = mysqli_query($this->connection, "DELETE FROM posts WHERE id='$_id'");
+
+        return $result;
     }
 
-    public function getPost($_id)
+    public function getPost(int $_id): array
     {
         $query = "SELECT * FROM posts WHERE id='$_id'";
         $result = mysqli_query($this->connection, $query);
