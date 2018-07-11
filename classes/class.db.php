@@ -46,6 +46,26 @@ class DB
         return mysqli_fetch_assoc($result);
     }
 
+    public function queryNextPost($_id)
+    {
+        $query = "SELECT COALESCE((SELECT MIN(id) FROM posts WHERE id > '$_id'), (SELECT MIN(id) FROM posts))";
+        $result = mysqli_query($this->connection, $query);
+        if (!$result && $this->config_app['is_debug']) {
+            die('Posts table query failed. ' . mysqli_error($this->connection));
+        }
+        return mysqli_fetch_row($result);
+    }
+
+    public function queryPrevPost($_id)
+    {
+        $query = "SELECT COALESCE((SELECT MAX(id) FROM posts WHERE id < '$_id'), (SELECT MAX(id) FROM posts))";
+        $result = mysqli_query($this->connection, $query);
+        if (!$result && $this->config_app['is_debug']) {
+            die('Posts table query failed. ' . mysqli_error($this->connection));
+        }
+        return mysqli_fetch_row($result);
+    }
+
     public function queryUser($_username)
     {
         $query = "SELECT * FROM users WHERE username='$_username'";

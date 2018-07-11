@@ -169,6 +169,12 @@ p {
     padding: 3rem 10rem;
 }
 
+@media screen and (max-width: 425px) {
+    .card-body-post {
+        padding: 3rem 1rem;
+    }
+}
+
 .card-comments {
     padding: 2rem;
     background-color: #333333;
@@ -213,6 +219,55 @@ p {
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     align-self: auto;
+}
+
+.post-prev .tooltiptext,
+.post-next .tooltiptext {
+    visibility: hidden;
+    min-width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+}
+
+.post-prev .tooltiptext {
+    left: 40px;
+}
+
+.post-next .tooltiptext {
+    right: 40px;
+}
+
+.post-prev .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+.post-next .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+
+.post-prev:hover .tooltiptext,
+.post-next:hover .tooltiptext {
+    visibility: visible;
 }
 
 .arrow-back {

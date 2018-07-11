@@ -40,6 +40,11 @@ class Main
         }
     }
 
+    public function db()
+    {
+        return $this->db;
+    }
+
     public function theme()
     {
         return $this->theme;

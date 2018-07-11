@@ -46,11 +46,20 @@
                 </div>
             </div>
             <div class="post-navigation">
+                <?php
+                $prevPostId = $main->posts()->prevId($main->post()->id());
+                $prevPost = $main->db()->queryPost($prevPostId);
+
+                $nextPostId = $main->posts()->nextId($main->post()->id());
+                $nextPost = $main->db()->queryPost($nextPostId);
+                ?>
                 <div class="post-prev">
-                    <a href="<?php echo $main->posts()->prev($main->post()->id()); ?>"><i class="fas fa-arrow-left"></i></a>
+                    <a href="index.php?post=<?php echo $prevPostId; ?>"><i class="fas fa-arrow-left"></i></a>
+                    <span class="tooltiptext"><?php echo $prevPost['title']; ?></span>
                 </div>
                 <div class="post-next">
-                    <a href="<?php echo $main->posts()->next($main->post()->id()); ?>"><i class="fas fa-arrow-right"></i></a>
+                    <a href="index.php?post=<?php echo $nextPostId; ?>"><i class="fas fa-arrow-right"></i></a>
+                    <span class="tooltiptext"><?php echo $nextPost['title']; ?></span>
                 </div>
             </div>
         </div>

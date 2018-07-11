@@ -15,6 +15,14 @@ class Post
         $this->id = $_id;
     }
 
+    public function id()
+    {
+        if (isset($this->id)) {
+            $post = $this->db->queryPost($this->id);
+            return $post['id'];
+        }
+    }
+
     public function title()
     {
         if (isset($this->id)) {

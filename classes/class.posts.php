@@ -17,4 +17,16 @@ class Posts
     {
         return $this->db->queryPosts();
     }
+
+    public function prevId($_id)
+    {
+        $id = $this->db->queryPrevPost($_id);
+        return $id[0];
+    }
+
+    public function nextId($_id)
+    {
+        $id = $this->db->queryNextPost($_id);
+        return $id[0];
+    }
 }
