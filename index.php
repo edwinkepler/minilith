@@ -25,9 +25,11 @@ if (!empty($_GET)) {
 }
 
 if (empty($post) && empty($category) && empty($search) && empty($archive)) {
+    $main->itsIndex();
     include 'themes/' . $main->site()->themeName() . '/index.php';
 } elseif (!empty($post)) {
     $main->post()->setId($post);
+    $main->itsPost();
     include 'themes/' . $main->site()->themeName() . '/post.php';
 } elseif (!empty($page)) {
     include 'themes/' . $main->site()->themeName() . '/page.php';

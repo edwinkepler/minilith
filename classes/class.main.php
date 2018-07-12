@@ -9,6 +9,9 @@ class Main
     private $storage;
     private $users;
 
+    private $is_index = false;
+    private $is_post = false;
+
     public function __construct($_app_vars)
     {
         require($_SERVER['DOCUMENT_ROOT'] . $_app_vars['path'] . '/classes/class.db.php');
@@ -72,5 +75,25 @@ class Main
     public function appUrl() : string
     {
         return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    }
+
+    public function itsIndex()
+    {
+        $this->is_index = true;
+    }
+
+    public function isIndex() : bool
+    {
+        return $this->is_index;
+    }
+
+    public function itsPost()
+    {
+        $this->is_post = true;
+    }
+
+    public function isPost() : bool
+    {
+        return $this->is_post;
     }
 }
