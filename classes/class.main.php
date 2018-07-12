@@ -32,45 +32,39 @@ class Main
 
         require($_SERVER['DOCUMENT_ROOT'] . $_app_vars['path'] . '/classes/class.users.php');
         $this->users = new Users($this->db, $_app_vars);
-
-        if ($_app_vars['is_debug']) {
-            ini_set('display_errors', 1);
-            ini_set('display_startup_errors', 1);
-            error_reporting(E_ALL);
-        }
     }
 
-    public function db()
+    public function db() : DB
     {
         return $this->db;
     }
 
-    public function theme()
+    public function theme() : Theme
     {
         return $this->theme;
     }
 
-    public function site()
+    public function site() : Site
     {
         return $this->site;
     }
 
-    public function posts()
+    public function posts() : Posts
     {
         return $this->posts;
     }
 
-    public function post()
+    public function post() : Post
     {
         return $this->post;
     }
 
-    public function storage()
+    public function storage() : Storage
     {
         return $this->storage;
     }
 
-    public function users()
+    public function users() : Users
     {
         return $this->users;
     }

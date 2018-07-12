@@ -13,18 +13,18 @@ class Posts
         return mysqli_num_rows($this->db->queryPosts());
     }
 
-    public function all()
+    public function all() : mysqli_result
     {
         return $this->db->queryPosts();
     }
 
-    public function prevId($_id)
+    public function prevId(int $_id) : int
     {
         $id = $this->db->queryPrevPost($_id);
         return $id[0];
     }
 
-    public function nextId($_id)
+    public function nextId(int $_id) : int
     {
         $id = $this->db->queryNextPost($_id);
         return $id[0];

@@ -4,7 +4,7 @@ class DB
     private $connection;
     private $config_app;
 
-    public function __construct($_config_db, $_config_app)
+    public function __construct(array $_config_db, array $_config_app)
     {
         $this->connection = mysqli_connect($_config_db['host'], $_config_db['user'], $_config_db['pass'], $_config_db['name']);
         $this->config_app = $_config_app;
@@ -16,7 +16,7 @@ class DB
         $this->connection->set_charset($this->config_app['charset']);
     }
 
-    public function queryApp()
+    public function queryApp() : array
     {
         $query = 'SELECT * FROM app';
         $result = mysqli_query($this->connection, $query);
@@ -26,7 +26,7 @@ class DB
         return mysqli_fetch_assoc($result);
     }
 
-    public function queryPosts()
+    public function queryPosts() : mysqli_result
     {
         $query = 'SELECT * FROM posts';
         $result = mysqli_query($this->connection, $query);
@@ -36,7 +36,7 @@ class DB
         return $result;
     }
 
-    public function queryPost($_id)
+    public function queryPost(int $_id) : array
     {
         $query = "SELECT * FROM posts WHERE id='$_id'";
         $result = mysqli_query($this->connection, $query);
@@ -46,7 +46,7 @@ class DB
         return mysqli_fetch_assoc($result);
     }
 
-    public function queryNextPost($_id)
+    public function queryNextPost(int $_id) : array
     {
         $query = "SELECT COALESCE((SELECT MIN(id) FROM posts WHERE id > '$_id'), (SELECT MIN(id) FROM posts))";
         $result = mysqli_query($this->connection, $query);
@@ -56,7 +56,7 @@ class DB
         return mysqli_fetch_row($result);
     }
 
-    public function queryPrevPost($_id)
+    public function queryPrevPost(int $_id) : array
     {
         $query = "SELECT COALESCE((SELECT MAX(id) FROM posts WHERE id < '$_id'), (SELECT MAX(id) FROM posts))";
         $result = mysqli_query($this->connection, $query);
@@ -66,7 +66,7 @@ class DB
         return mysqli_fetch_row($result);
     }
 
-    public function queryUser($_username)
+    public function queryUser(string $_username) : array
     {
         $query = "SELECT * FROM users WHERE username='$_username'";
         $result = mysqli_query($this->connection, $query);
