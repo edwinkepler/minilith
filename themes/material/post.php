@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+<?php include 'header.php'; ?>
 
 <div class="background"></div>
 <div class="arrow-back">
@@ -61,4 +61,4 @@
     </div>
 </main>
 
-<?php include "footer.php"; ?>
+<?php include 'footer.php'; ?>

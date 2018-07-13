@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+<?php include 'header.php'; ?>
 
 <div class="background"></div>
 <main class="container">
@@ -6,7 +6,7 @@
         <div class="column margin-top-15rem">
             <?php
             if ($main->posts()->count() == 0) {
-                echo "<h1>No posts found</h1>";
+                echo '<h1>No posts found</h1>';
             } else {
                 foreach ($main->posts()->all() as $post) {
             ?>
@@ -36,4 +36,4 @@
     </div>
 </main>
 
-<?php include "footer.php"; ?>
+<?php include 'footer.php'; ?>
