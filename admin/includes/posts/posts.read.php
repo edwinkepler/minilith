@@ -1,11 +1,11 @@
 <?php
-if (!defined("PAGE")) {
-    header("HTTP/1.1 404 File Not Found", 404);
+if (!defined('PAGE')) {
+    header('HTTP/1.1 404 File Not Found', 404);
     exit;
 }
 
-if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
-    header("Location: login.php");
+if (!isset($_SESSION['username']) || !isset($_SESSION['logged_in'])) {
+    header('Location: login.php');
     exit;
 }
 ?>
@@ -50,20 +50,20 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
                 </div>
             </div>
             <?php
-                foreach($posts->queryPosts() as $post) {
+            foreach($posts->queryPosts() as $post) {
             ?>
-            <a href="posts.php?action=update&id=<?php echo $post["id"]; ?>">
+            <a href="posts.php?action=update&id=<?php echo $post['id']; ?>">
                 <div class="list-item">
                     <div class="columns is-desktop is-vcentered">
                         <div class="column is-1 has-text-centered">
-                            <span class="has-text-dark"><?php echo $post["id"]; ?></span>
+                            <span class="has-text-dark"><?php echo $post['id']; ?></span>
                         </div>
                         <div class="column is-2 padding-top-bottom-075rem">
                             <div class="list-item-img" style="background-image: url('<?php echo "../storage/images/" . $post["image"]; ?>')"></div>
                         </div>
                         <div class="column is-4">
-                            <span class="has-text-dark"><?php echo $post["title"]; ?></span>
-                            <p class="has-text-grey"><?php echo $post["excerpt"]; ?></p>
+                            <span class="has-text-dark"><?php echo $post['title']; ?></span>
+                            <p class="has-text-grey"><?php echo $post['excerpt']; ?></p>
                         </div>
                         <div class="column is-1">
 
@@ -72,7 +72,7 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
                             <span class="has-text-dark"><?php echo $post["author"]; ?></span>
                         </div>
                         <div class="column is-3">
-                            <button id="<?php echo $post["id"]; ?>" class="modal-trigger button is-danger">
+                            <button id="<?php echo $post['id']; ?>" class="modal-trigger button is-danger">
                                 <span class="icon is-small">
                                     <i class="fas fa-times"></i>
                                 </span>
@@ -81,7 +81,7 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
                     </div>
                 </div>
             </a>
-            <div id="delete-<?php echo $post["id"]; ?>" class="modal">
+            <div id="delete-<?php echo $post['id']; ?>" class="modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
                     <div class="card">
@@ -92,18 +92,18 @@ if (!isset($_SESSION["username"]) || !isset($_SESSION["logged_in"])) {
                         </header>
                         <div class="card-content">
                             <div class="content">
-                                <p>Are you sure you want to delete post <?php echo $post["title"]; ?></p>
+                                <p>Are you sure you want to delete post <?php echo $post['title']; ?></p>
                             </div>
                         </div>
                         <footer class="card-footer">
-                            <a href="posts.php?action=delete&id=<?php echo $post["id"]; ?>" class="card-footer-item modal-button-yes">Yes</a>
+                            <a href="posts.php?action=delete&id=<?php echo $post['id']; ?>" class="card-footer-item modal-button-yes">Yes</a>
                             <a href="#" class="card-footer-item modal-button-no">No</a>
                         </footer>
                     </div>
                 </div>
             </div>
             <?php
-                } // end foreach
+            } // end foreach
             ?>
         </div>
     </main>

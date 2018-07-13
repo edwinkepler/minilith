@@ -2,10 +2,10 @@
 ob_start();
 session_start();
 
-$_SESSION["csrf"] = md5(time());
+$_SESSION['csrf'] = md5(time());
 
-if (isset($_SESSION["username"]) && isset($_SESSION["logged_in"])) {
-    header("Location: index.php");
+if (isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
+    header('Location: index.php');
     exit;
 }
 ?>
@@ -27,7 +27,7 @@ if (isset($_SESSION["username"]) && isset($_SESSION["logged_in"])) {
     <div class="columns is-mobile">
         <div class="column is-4 is-offset-4">
             <form class="login-form" action="includes/login/login.read.php" method="POST">
-                <input type="hidden" name="csrf" value="<?php echo $_SESSION["csrf"] ?>">
+                <input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf'] ?>">
                 <div class="field">
                     <label class="label">E-mail</label>
                     <div class="control">

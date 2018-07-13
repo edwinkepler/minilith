@@ -1,6 +1,6 @@
 <?php
-if (!defined("PAGE")) {
-    header("HTTP/1.1 404 File Not Found", 404);
+if (!defined('PAGE')) {
+    header('HTTP/1.1 404 File Not Found', 404);
     exit;
 }
 ?>
@@ -16,17 +16,17 @@ if (!defined("PAGE")) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <?php
-        foreach($main->getCss() as $css) {
-            echo '<link rel="stylesheet" href="' . $css . '">';
-        }
+    foreach($main->getCss() as $css) {
+        echo '<link rel="stylesheet" href="' . $css . '">';
+    }
     ?>
     <link rel="stylesheet" href="assets/css/main.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <?php
-        foreach($main->getScript() as $script) {
-            echo '<script src="' . $script . '"></script>';
-        }
+    foreach($main->getScript() as $script) {
+        echo '<script src="' . $script . '"></script>';
+    }
     ?>
     <script src="assets/js/main.js"></script>
 </head>
@@ -61,7 +61,7 @@ if (!defined("PAGE")) {
                                 </div>
                             </div>
                             <div class="navbar-item has-dropdown is-hoverable">
-                                <a class="navbar-link" href="posts.php">
+                                <a class="navbar-link" href="pages.php">
                                     Pages
                                 </a>
                                 <div class="navbar-dropdown is-boxed">
@@ -76,9 +76,23 @@ if (!defined("PAGE")) {
                             <a class="navbar-item" href="storage.php">
                                 Storage
                             </a>
-                            <a class="navbar-item" href="themes.php">
-                                Themes
+                            <a class="navbar-item" href="users.php">
+                                Users
                             </a>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link" href="settings.php">
+                                    Settings
+                                </a>
+                                <div class="navbar-dropdown is-boxed">
+                                    <a class="navbar-item" href="settings.php">
+                                        Settings
+                                    </a>
+                                    <hr class="navbar-divider">
+                                    <a class="navbar-item" href="themes.php">
+                                        Themes
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="navbar-end">
                             <a class="navbar-item" href="includes/index/index.logout.php">
