@@ -326,3 +326,8 @@ p {
     align-self: auto;
     text-align: center;
 }
+
+pre {
+    background-color: #ececec;
+    border-radius: 4px;
+}

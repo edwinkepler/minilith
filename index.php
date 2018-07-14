@@ -32,9 +32,10 @@ if (empty($post) && empty($category) && empty($search) && empty($archive)) {
 
     $main->itsPost();
 
-    $main->setCss('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css');
+    $main->setCss('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/gruvbox-dark.min.css');
     $main->setScript('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js');
     $main->setScript($main->theme()->url() . '/assets/js/post.js');
+
     include 'themes/' . $main->site()->themeName() . '/post.php';
 } elseif (!empty($page)) {
     include 'themes/' . $main->site()->themeName() . '/page.php';
