@@ -330,3 +330,18 @@ p {
 pre {
     border-radius: 4px;
 }
+
+blockquote {
+    position: relative;
+}
+
+blockquote:before {
+    content: "";
+    position: absolute;
+    height: calc(100% + 2rem);
+    width: 5px;
+    left: -40px;
+    top: -1rem;
+    background-color: #333333;
+    border-radius: 4px;
+}
