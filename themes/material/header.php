@@ -4,7 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <?php
+    if ($main->isPost()) {
+    ?>
+    <title><?php echo $main->post()->title(); ?> | <?php echo $main->site()->title(); ?></title>
+    <?php
+    } else {
+    ?>
     <title><?php echo $main->site()->title(); ?></title>
+    <?php
+    }
+    ?>
+
     <meta name="description" content="<?php echo $main->site()->description(); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
