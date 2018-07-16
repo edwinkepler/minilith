@@ -28,7 +28,7 @@ class DB
 
     public function queryPosts() : mysqli_result
     {
-        $query = 'SELECT * FROM posts';
+        $query = 'SELECT * FROM posts ORDER BY id DESC';
         $result = mysqli_query($this->connection, $query);
         if (!$result && $this->config_app['is_debug']) {
             die('Posts table query failed. ' . mysqli_error($this->connection));
