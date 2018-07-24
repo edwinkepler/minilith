@@ -15,13 +15,13 @@ class Post
     public function setId(int $_id)
     {
         $this->id = $_id;
+        $this->post = $this->db->queryPost($this->id);
     }
 
     public function id() : string
     {
         if (isset($this->id)) {
-            $post = $this->db->queryPost($this->id);
-            return $post['id'];
+            return $this->post['id'];
         } else {
             return $err_msg_no_id;
         }
@@ -30,8 +30,7 @@ class Post
     public function title() : string
     {
         if (isset($this->id)) {
-            $post = $this->db->queryPost($this->id);
-            return $post['title'];
+            return $this->post['title'];
         } else {
             return $err_msg_no_id;
         }
@@ -40,8 +39,7 @@ class Post
     public function content() : string
     {
         if (isset($this->id)) {
-            $post = $this->db->queryPost($this->id);
-            return $post['content'];
+            return $this->post['content'];
         } else {
             return $err_msg_no_id;
         }
@@ -50,8 +48,7 @@ class Post
     public function image() : string
     {
         if (isset($this->id)) {
-            $post = $this->db->queryPost($this->id);
-            return $post['image'];
+            return $this->post['image'];
         } else {
             return $err_msg_no_id;
         }
@@ -60,8 +57,7 @@ class Post
     public function author() : string
     {
         if (isset($this->id)) {
-            $post = $this->db->queryPost($this->id);
-            return $post['author'];
+            return $this->post['author'];
         } else {
             return $err_msg_no_id;
         }
@@ -70,8 +66,7 @@ class Post
     public function date() : string
     {
         if (isset($this->id)) {
-            $post = $this->db->queryPost($this->id);
-            return $post['date_published'];
+            return $this->post['date_published'];
         } else {
             return $err_msg_no_id;
         }
