@@ -36,14 +36,26 @@ class DB
         return $result;
     }
 
+    public function postExist(int $_id) : bool
+    {
+        $query = "SELECT * FROM posts WHERE id='$_id'";
+        $result = mysqli_query($this->connection, $query);
+        if ($result->num_rows == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function queryPost(int $_id) : array
     {
         $query = "SELECT * FROM posts WHERE id='$_id'";
         $result = mysqli_query($this->connection, $query);
         if (!$result && $this->config_app['is_debug']) {
             die('Posts table query failed. ' . mysqli_error($this->connection));
+        } else {
+            return mysqli_fetch_assoc($result);
         }
-        return mysqli_fetch_assoc($result);
     }
 
     public function queryNextPost(int $_id) : array
